@@ -103,7 +103,7 @@ export default function LiveCodingPreview() {
 function CodePanel({ lineIdx, charIdx }: { lineIdx: number; charIdx: number }) {
   return (
     <div className="relative bg-white" style={{ borderBottom: `1px solid ${HAIRLINE}` }}>
-      <PanelHeader label="~/mmwg/hero.tsx" />
+      <PanelHeader label="code" />
 
       <div
         className="px-4 pb-5 pt-4 font-mono text-[12.5px] md:text-[13.5px]"
@@ -146,7 +146,7 @@ function CodePanel({ lineIdx, charIdx }: { lineIdx: number; charIdx: number }) {
 function UIPanel({ revealed }: { revealed: string[] }) {
   return (
     <div className="relative bg-[#F5F5F8]" style={{ color: DARK }}>
-      <PanelHeader label="preview · localhost:3000" />
+      <PanelHeader label="preview" />
 
       <div
         className="flex flex-col items-start gap-4 px-6 pb-8 pt-6 md:px-8 md:pb-10 md:pt-8"
