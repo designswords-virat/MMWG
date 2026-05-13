@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Field from "./Field";
 import CategorySelect from "./CategorySelect";
@@ -58,6 +58,32 @@ export default function Form() {
   );
   const [serverMessage, setServerMessage] = useState<string>("");
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Pre-fill the URL from the floating sticky form bar at the bottom of
+  // the page. The bar writes to sessionStorage AND dispatches an event so
+  // we get the value whether the user submits the bar before or after the
+  // Form mounts.
+  useEffect(() => {
+    try {
+      const saved = sessionStorage.getItem("mmwg:prefill-url");
+      if (saved && !existingUrl) {
+        setExistingUrl(saved);
+        sessionStorage.removeItem("mmwg:prefill-url");
+      }
+    } catch {
+      // ignore — sessionStorage unavailable
+    }
+    const onPrefill = (e: Event) => {
+      const detail = (e as CustomEvent<string>).detail;
+      if (typeof detail === "string" && detail.trim()) {
+        setExistingUrl(detail.trim());
+      }
+    };
+    window.addEventListener("mmwg:prefill-url", onPrefill);
+    return () => window.removeEventListener("mmwg:prefill-url", onPrefill);
+    // intentionally empty deps — only run on mount
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   function validate(): boolean {
     const next: Errors = {};
