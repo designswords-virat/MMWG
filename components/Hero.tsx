@@ -14,41 +14,8 @@ export default function Hero() {
   return (
     <header className="relative pt-24 md:pt-28" style={{ color: DARK }}>
       <div className="mx-auto max-w-[1440px] px-6 md:px-10">
-        {/* Structure label */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          className="flex items-center gap-3"
-          style={{ color: FAINT }}
-        >
-          <span className="h-px w-12" style={{ background: HAIRLINE, backgroundColor: FAINT }} />
-          <span className="font-mono text-[10px] uppercase tracking-[0.18em]">
-            structure and grid system
-          </span>
-        </motion.div>
-
-        {/* Grid measurement markers — design-system documentation feel */}
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mt-6 hidden grid-cols-12 gap-6 font-mono text-[10px] uppercase tracking-[0.18em] md:grid"
-          style={{ color: FAINT }}
-        >
-          <div className="col-span-3 border-t pt-2" style={{ borderColor: HAIRLINE }}>
-            240 px
-          </div>
-          <div className="col-span-5 border-t pt-2" style={{ borderColor: HAIRLINE }}>
-            560 px
-          </div>
-          <div className="col-span-4 border-t pt-2" style={{ borderColor: HAIRLINE }}>
-            360 px
-          </div>
-        </motion.div>
-
         {/* Hero content split */}
-        <div className="mt-16 grid grid-cols-1 gap-12 md:mt-20 md:grid-cols-12 md:gap-8">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-8">
           {/* Left: text */}
           <div className="md:col-span-7">
             <motion.div

@@ -5,6 +5,7 @@ import HowItWorks from "@/components/HowItWorks";
 import StylesShowcase from "@/components/StylesShowcase";
 import Form from "@/components/Form";
 import Footer from "@/components/Footer";
+import StickyCTA from "@/components/StickyCTA";
 
 export default function Page() {
   return (
@@ -16,6 +17,7 @@ export default function Page() {
       <StylesShowcase />
       <Form />
       <Footer />
+      <StickyCTA />
     </main>
   );
 }
