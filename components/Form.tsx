@@ -306,11 +306,19 @@ export default function Form() {
                     backgroundPosition: "right 0.25rem center",
                   }}
                 >
-                  <option value="" disabled>
+                  <option
+                    value=""
+                    disabled
+                    style={{ background: "#181820", color: "rgba(255,255,255,0.5)" }}
+                  >
                     Select industry…
                   </option>
                   {INDUSTRIES.map((ind) => (
-                    <option key={ind.slug} value={ind.slug}>
+                    <option
+                      key={ind.slug}
+                      value={ind.slug}
+                      style={{ background: "#181820", color: "#FFFFFF" }}
+                    >
                       {ind.code} · {ind.label}
                     </option>
                   ))}
