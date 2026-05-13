@@ -5,7 +5,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import Field from "./Field";
 import CategorySelect from "./CategorySelect";
 import ColorPicker from "./ColorPicker";
-import { INDUSTRIES, type IndustrySlug } from "@/lib/industries";
+import IndustrySelect from "./IndustrySelect";
+import { type IndustrySlug } from "@/lib/industries";
 
 // Dark section palette
 const BG = "#0E0E10";
@@ -290,39 +291,13 @@ export default function Form() {
                   <span>Industry Category</span>
                   <span style={{ color: TEXT_MUTED }}>— 12 sectors</span>
                 </div>
-                <select
-                  value={industry ?? ""}
-                  onChange={(e) => {
-                    const next = e.target.value as IndustrySlug | "";
-                    setIndustry(next === "" ? null : next);
+                <IndustrySelect
+                  value={industry}
+                  onChange={(next) => {
+                    setIndustry(next);
                     setCategory(null);
                   }}
-                  className="w-full appearance-none bg-transparent py-3 pr-8 text-[16px] outline-none transition-all duration-200"
-                  style={{
-                    borderBottom: `1px solid ${HAIRLINE}`,
-                    color: TEXT,
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23FFFFFF' stroke-width='1.5' stroke-linecap='square'/%3E%3C/svg%3E")`,
-                    backgroundRepeat: "no-repeat",
-                    backgroundPosition: "right 0.25rem center",
-                  }}
-                >
-                  <option
-                    value=""
-                    disabled
-                    style={{ background: "#181820", color: "rgba(255,255,255,0.5)" }}
-                  >
-                    Select industry…
-                  </option>
-                  {INDUSTRIES.map((ind) => (
-                    <option
-                      key={ind.slug}
-                      value={ind.slug}
-                      style={{ background: "#181820", color: "#FFFFFF" }}
-                    >
-                      {ind.code} · {ind.label}
-                    </option>
-                  ))}
-                </select>
+                />
                 {errors.industry && (
                   <p className="mt-1.5 font-mono text-[11px] uppercase tracking-widest text-red-400">
                     — {errors.industry}
