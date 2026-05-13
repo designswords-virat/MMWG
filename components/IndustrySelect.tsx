@@ -65,9 +65,7 @@ export default function IndustrySelect({
         aria-haspopup="listbox"
         aria-expanded={open}
       >
-        <span>
-          {selected ? `${selected.code} · ${selected.label}` : "Select industry…"}
-        </span>
+        <span>{selected ? selected.label : "Select industry…"}</span>
         <svg
           width="12"
           height="8"
@@ -117,7 +115,7 @@ export default function IndustrySelect({
                       onChange(ind.slug);
                       setOpen(false);
                     }}
-                    className="flex w-full items-baseline justify-between gap-3 px-4 py-2.5 text-left text-[15px] transition-colors"
+                    className="flex w-full items-center justify-between gap-3 px-5 py-2.5 text-left text-[15px] transition-colors"
                     style={{
                       color: isSelected ? "#FFFFFF" : "rgba(255,255,255,0.85)",
                       background: isSelected ? SURFACE_HOVER : "transparent",
@@ -133,9 +131,6 @@ export default function IndustrySelect({
                       }
                     }}
                   >
-                    <span className="font-mono text-[11px] uppercase tracking-widest" style={{ color: TEXT_MUTED }}>
-                      {ind.code}
-                    </span>
                     <span className="flex-1">{ind.label}</span>
                     {isSelected && (
                       <svg
@@ -148,6 +143,7 @@ export default function IndustrySelect({
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         aria-hidden
+                        className="flex-shrink-0"
                       >
                         <polyline points="20 6 9 17 4 12" />
                       </svg>
