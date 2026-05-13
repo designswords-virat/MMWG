@@ -52,19 +52,19 @@ export default function Footer() {
           className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
           style={{ borderTop: `1px solid ${HAIRLINE}`, borderLeft: `1px solid ${HAIRLINE}` }}
         >
-          <Col label="01 / product">
+          <Col label="Product">
             <Link href="#submit">submit</Link>
             <Link href="#styles">styles</Link>
             <Link href="#process">process</Link>
           </Col>
-          <Col label="02 / studio">
+          <Col label="Studio">
             <Link href="#process">workflow</Link>
           </Col>
-          <Col label="03 / reach">
+          <Col label="Reach">
             <Link href="mailto:designs.words@gmail.com">designs.words@gmail.com</Link>
             <Link disabled>jaipur, india</Link>
           </Col>
-          <Col label="04 / status">
+          <Col label="Status">
             <div className="flex items-center gap-2">
               <span className="relative flex h-1.5 w-1.5">
                 <span
@@ -78,7 +78,6 @@ export default function Footer() {
               </span>
               <span>all systems normal</span>
             </div>
-            <span style={{ color: MUTED }}>v.2026.05.11</span>
           </Col>
         </div>
 
@@ -88,14 +87,13 @@ export default function Footer() {
           style={{ borderTop: `1px solid ${HAIRLINE}`, color: MUTED }}
         >
           <span>
-            © <span id="footer-year">2026</span> @mmwg · made greatly
+            © <span id="footer-year">2026</span> MMWG · Made Greatly
           </span>
-          <span>~/mmwg/v.2026.05</span>
           <span
             className="font-bold underline decoration-2 underline-offset-4"
             style={{ color: DARK }}
           >
-            instagram · pinterest --
+            instagram · pinterest
           </span>
         </div>
       </div>

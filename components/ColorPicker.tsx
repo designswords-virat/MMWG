@@ -22,17 +22,16 @@ export default function ColorPicker({
 }) {
   return (
     <div>
-      <div className="mb-3 flex items-center justify-between">
-        <label className="text-sm font-medium text-textPrimary">
-          Accent color
-        </label>
-        <span className="font-mono text-xs uppercase text-textMuted">
-          {value}
-        </span>
+      <div className="mb-3 flex items-baseline justify-between font-mono text-[11px] uppercase tracking-widest">
+        <span style={{ color: "#FFFFFF" }}>Accent color</span>
+        <span style={{ color: "rgba(255,255,255,0.6)" }}>{value}</span>
       </div>
 
       <div className="flex items-center gap-3">
-        <div className="relative h-12 w-16 shrink-0 overflow-hidden rounded-lg border border-border">
+        <div
+          className="relative h-12 w-16 shrink-0 overflow-hidden rounded-lg"
+          style={{ border: "1px solid rgba(255,255,255,0.15)" }}
+        >
           <input
             type="color"
             value={value}
@@ -52,13 +51,10 @@ export default function ColorPicker({
                 onClick={() => onChange(hex)}
                 whileHover={{ scale: 1.08 }}
                 whileTap={{ scale: 0.94 }}
-                className={`h-8 w-8 rounded-full border transition-shadow ${
-                  selected
-                    ? "border-textPrimary ring-2 ring-textPrimary/40"
-                    : "border-border hover:border-textMuted"
-                }`}
+                className="h-8 w-8 rounded-full transition-shadow"
                 style={{
                   backgroundColor: hex,
+                  border: selected ? "2px solid #FFFFFF" : "1px solid rgba(255,255,255,0.15)",
                   boxShadow: selected ? `0 0 22px ${hex}66` : undefined,
                 }}
                 aria-label={`Use color ${hex}`}

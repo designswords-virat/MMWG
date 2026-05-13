@@ -6,9 +6,7 @@ import WaterFX from "./WaterFX";
 
 const DARK = "#0F0F11";
 const MUTED = "#6B6B72";
-const FAINT = "#A8A8B0";
 const HAIRLINE = "rgba(15,15,17,0.10)";
-const BLUE = "#007AFF";
 
 export default function Hero() {
   return (
@@ -106,43 +104,8 @@ export default function Hero() {
               <LiveCodingPreview />
             </WaterFX>
 
-            {/* Caption strip below — like the "360° ROTATE" line in Esper */}
-            <div
-              className="mt-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.18em]"
-              style={{ color: MUTED }}
-            >
-              <div className="flex items-center gap-2">
-                <span
-                  className="relative flex h-1.5 w-1.5"
-                  aria-hidden
-                >
-                  <span
-                    className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-60"
-                    style={{ background: BLUE }}
-                  />
-                  <span
-                    className="relative inline-flex h-1.5 w-1.5 rounded-full"
-                    style={{ background: BLUE }}
-                  />
-                </span>
-                live build
-              </div>
-              <span>jsx → ui</span>
-            </div>
           </motion.div>
         </div>
-
-        {/* Bottom rule + metadata footer for the hero block */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.7 }}
-          className="mt-20 flex flex-wrap items-baseline justify-between gap-3 border-t pt-4 font-mono text-[10px] uppercase tracking-[0.18em] md:mt-28"
-          style={{ color: MUTED, borderColor: HAIRLINE }}
-        >
-          <span>~/mmwg/hero.tsx · v.2026.05</span>
-          <span>scroll for process · styles · submit ↓</span>
-        </motion.div>
       </div>
     </header>
   );

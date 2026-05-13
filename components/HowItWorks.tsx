@@ -37,16 +37,7 @@ export default function HowItWorks() {
       className="relative bg-white"
       style={{ borderTop: `1px solid ${HAIRLINE}` }}
     >
-      {/* Top metadata strip */}
-      <div
-        className="flex items-baseline justify-between px-6 py-4 font-mono text-[11px] uppercase tracking-widest md:px-10"
-        style={{ color: MUTED }}
-      >
-        <span>—section · 01</span>
-        <span>4 steps · 48hr total</span>
-      </div>
-
-      <div className="px-6 md:px-10">
+      <div className="px-6 pt-16 md:px-10 md:pt-20">
         {/* Huge section title */}
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
@@ -126,14 +117,6 @@ export default function HowItWorks() {
         </ol>
       </div>
 
-      {/* Bottom metadata strip */}
-      <div
-        className="flex items-baseline justify-between px-6 py-4 font-mono text-[11px] uppercase tracking-widest md:px-10"
-        style={{ color: MUTED }}
-      >
-        <span>~/mmwg/process</span>
-        <span>end ·</span>
-      </div>
     </section>
   );
 }

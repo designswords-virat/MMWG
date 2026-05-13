@@ -7,9 +7,12 @@ import CategorySelect from "./CategorySelect";
 import ColorPicker from "./ColorPicker";
 import { INDUSTRIES, type IndustrySlug } from "@/lib/industries";
 
-const DARK = "#0F0F11";
-const MUTED = "#6B6B72";
-const HAIRLINE = "rgba(15,15,17,0.10)";
+// Dark section palette
+const BG = "#0E0E10";
+const TEXT = "#FFFFFF";
+const TEXT_MUTED = "rgba(255, 255, 255, 0.6)";
+const HAIRLINE = "rgba(255, 255, 255, 0.10)";
+const ACCENT = "#7C3AED";
 
 type Errors = Partial<
   Record<
@@ -131,26 +134,20 @@ export default function Form() {
   return (
     <section
       id="submit"
-      className="relative bg-white"
-      style={{ borderTop: `1px solid ${HAIRLINE}`, color: DARK }}
+      className="relative"
+      style={{ background: BG, color: TEXT, borderTop: `1px solid ${HAIRLINE}` }}
     >
-      {/* Top metadata strip */}
-      <div className="flex items-baseline justify-between px-6 py-4 font-mono text-[11px] uppercase tracking-widest md:px-10">
-        <span>—section · 03</span>
-        <span>7 fields · single submission</span>
-      </div>
-
-      <div className="px-6 md:px-10">
+      <div className="px-6 pt-20 md:px-10 md:pt-28">
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="font-semibold leading-[0.95] tracking-[-0.035em]"
-          style={{ color: DARK, fontSize: "clamp(36px, 6vw, 88px)" }}
+          style={{ color: TEXT, fontSize: "clamp(36px, 6vw, 88px)" }}
         >
           submit
-          <span className="font-light italic tracking-[-0.03em]" style={{ fontSize: "0.55em" }}>
+          <span className="font-light italic tracking-[-0.03em]" style={{ fontSize: "0.55em", color: ACCENT }}>
             .
           </span>
         </motion.h2>
@@ -161,6 +158,7 @@ export default function Form() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, delay: 0.1 }}
           className="mt-6 max-w-lg text-[15px] leading-snug"
+          style={{ color: TEXT_MUTED }}
         >
           Tell us about your project. We&apos;ll get your home page redesigned and deployed within 48 hours.
         </motion.p>
@@ -207,15 +205,16 @@ export default function Form() {
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
               </motion.div>
-              <h3 className="mt-5 text-2xl font-semibold">Request received</h3>
-              <p className="mt-2 max-w-sm text-[#6B6B72]">
+              <h3 className="mt-5 text-2xl font-semibold" style={{ color: TEXT }}>Request received</h3>
+              <p className="mt-2 max-w-sm" style={{ color: TEXT_MUTED }}>
                 We&apos;ll get to work on your redesign. Expect the home page
                 preview within 48 hours.
               </p>
               <button
                 type="button"
                 onClick={reset}
-                className="mt-8 font-mono text-xs uppercase tracking-widest text-[#6B6B72] underline-offset-4 hover:text-[#6B6B72] hover:underline"
+                className="mt-8 font-mono text-xs uppercase tracking-widest underline-offset-4 hover:underline"
+                style={{ color: TEXT_MUTED }}
               >
                 Submit another →
               </button>
@@ -261,9 +260,9 @@ export default function Form() {
               />
 
               <div>
-                <div className="mb-1.5 flex items-baseline justify-between font-mono text-[11px] uppercase tracking-widest" style={{ color: DARK }}>
+                <div className="mb-1.5 flex items-baseline justify-between font-mono text-[11px] uppercase tracking-widest" style={{ color: TEXT }}>
                   <span>Industry Category</span>
-                  <span style={{ color: MUTED }}>— 12 sectors</span>
+                  <span style={{ color: TEXT_MUTED }}>— 12 sectors</span>
                 </div>
                 <select
                   value={industry ?? ""}
@@ -275,8 +274,8 @@ export default function Form() {
                   className="w-full appearance-none bg-transparent py-3 pr-8 text-[16px] outline-none transition-all duration-200"
                   style={{
                     borderBottom: `1px solid ${HAIRLINE}`,
-                    color: DARK,
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230F0F11' stroke-width='1.5' stroke-linecap='square'/%3E%3C/svg%3E")`,
+                    color: TEXT,
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23FFFFFF' stroke-width='1.5' stroke-linecap='square'/%3E%3C/svg%3E")`,
                     backgroundRepeat: "no-repeat",
                     backgroundPosition: "right 0.25rem center",
                   }}
@@ -291,7 +290,7 @@ export default function Form() {
                   ))}
                 </select>
                 {errors.industry && (
-                  <p className="mt-1.5 font-mono text-[11px] uppercase tracking-widest text-red-600">
+                  <p className="mt-1.5 font-mono text-[11px] uppercase tracking-widest text-red-400">
                     — {errors.industry}
                   </p>
                 )}
@@ -339,7 +338,8 @@ export default function Form() {
                 disabled={status === "loading"}
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-lg bg-[#0F0F11] px-6 py-4 text-base font-medium text-white transition-all hover:bg-[#0F0F11]/90 disabled:opacity-60"
+                className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-lg px-6 py-4 text-base font-medium transition-all disabled:opacity-60"
+                style={{ background: ACCENT, color: TEXT, boxShadow: `0 8px 24px ${ACCENT}40` }}
               >
                 {status === "loading" ? (
                   <>
@@ -384,8 +384,8 @@ export default function Form() {
                 )}
               </motion.button>
 
-              <p className="text-center font-mono text-[11px] uppercase tracking-widest text-[#6B6B72]">
-                Your data stays local · no spam
+              <p className="text-center font-mono text-[11px] uppercase tracking-widest" style={{ color: TEXT_MUTED }}>
+                Your data stays private · no spam
               </p>
             </motion.form>
           )}
@@ -393,10 +393,7 @@ export default function Form() {
         </div>
       </motion.div>
 
-      <div className="mt-16 flex items-baseline justify-between px-6 py-4 font-mono text-[11px] uppercase tracking-widest md:px-10">
-        <span>~/mmwg/submit</span>
-        <span>end ·</span>
-      </div>
+      <div className="pb-20" />
     </section>
   );
 }

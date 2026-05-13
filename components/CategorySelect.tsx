@@ -8,10 +8,13 @@ import {
   type ThemeSlug,
 } from "@/lib/industries";
 
-const DARK = "#0F0F11";
-const MUTED = "#6B6B72";
-const HAIRLINE = "rgba(15,15,17,0.15)";
-const BLUE = "#007AFF";
+// Dark surface palette (form is dark-themed).
+const TEXT = "#FFFFFF";
+const TEXT_MUTED = "rgba(255, 255, 255, 0.6)";
+const HAIRLINE = "rgba(255, 255, 255, 0.15)";
+const CARD_BG = "#181820";
+const CARD_BG_HOVER = "#22222C";
+const ACCENT = "#7C3AED";
 
 /* Mini visual previews — one per base theme.
    The mapped theme of a category decides which preview the card shows. */
@@ -96,8 +99,8 @@ export default function CategorySelect({
   return (
     <div>
       <div className="mb-3 flex items-baseline justify-between font-mono text-[11px] uppercase tracking-widest">
-        <span style={{ color: DARK }}>Category</span>
-        <span style={{ color: MUTED }}>
+        <span style={{ color: TEXT }}>Category</span>
+        <span style={{ color: TEXT_MUTED }}>
           {!industry
             ? "— pick an industry category first"
             : value
@@ -110,9 +113,9 @@ export default function CategorySelect({
         <div
           className="flex min-h-[160px] items-center justify-center px-4 text-center font-mono text-[12px] uppercase tracking-widest"
           style={{
-            color: MUTED,
+            color: TEXT_MUTED,
             border: `1px dashed ${HAIRLINE}`,
-            background: "#FFFFFF",
+            background: CARD_BG,
           }}
         >
           Category options appear once an industry category is selected.
@@ -165,10 +168,10 @@ function CategoryCard({
       whileTap={{ scale: 0.98 }}
       className="group relative overflow-hidden p-3 text-left transition-colors"
       style={{
-        background: "#FFFFFF",
-        border: `1px solid ${selected ? DARK : HAIRLINE}`,
-        color: DARK,
-        outline: selected ? `2px solid ${DARK}` : "none",
+        background: selected ? CARD_BG_HOVER : CARD_BG,
+        border: `1px solid ${selected ? ACCENT : HAIRLINE}`,
+        color: TEXT,
+        outline: selected ? `2px solid ${ACCENT}` : "none",
         outlineOffset: selected ? "-3px" : "0",
       }}
     >

@@ -210,16 +210,7 @@ export default function StylesShowcase() {
       className="relative"
       style={{ borderTop: `1px solid ${HAIRLINE}`, background: "#EDEEF1" }}
     >
-      {/* Top metadata strip */}
-      <div
-        className="flex items-baseline justify-between px-6 py-4 font-mono text-[11px] uppercase tracking-widest md:px-10"
-        style={{ color: MUTED }}
-      >
-        <span>—section · 02</span>
-        <span>6 styles · zero overlap</span>
-      </div>
-
-      <div className="px-6 md:px-10">
+      <div className="px-6 pt-16 md:px-10 md:pt-20">
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -300,13 +291,6 @@ export default function StylesShowcase() {
         </div>
       </div>
 
-      <div
-        className="mt-12 flex items-baseline justify-between px-6 py-4 font-mono text-[11px] uppercase tracking-widest md:px-10"
-        style={{ color: MUTED }}
-      >
-        <span>~/mmwg/styles</span>
-        <span>end ·</span>
-      </div>
     </section>
   );
 }
